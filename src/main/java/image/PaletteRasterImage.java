@@ -43,7 +43,7 @@ public class PaletteRasterImage implements Image {
         int index;
         if(!palette.contains(color)){
             palette.add(color);
-            index = palette.size();
+            index = palette.size()-1;
         }
         else
             index = palette.indexOf(color);
@@ -53,7 +53,8 @@ public class PaletteRasterImage implements Image {
 
     @Override
     public Color getPixelColor(int x, int y){
-        return palette.get(indexOfColors[x][y]);
+        int index = indexOfColors[x][y];
+        return palette.get(index);
     }
 
     public void setPixelsColor(Color[][] pixels){
