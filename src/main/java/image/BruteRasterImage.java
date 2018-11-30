@@ -13,7 +13,7 @@ public class BruteRasterImage implements Image{
     public BruteRasterImage(Color color, int width, int height){
         this.height = height;
         this.width = width;
-        pixels = new Color[height][width];
+        pixels = new Color[width][height];
         setPixelsColor(color);
     }
 
@@ -23,35 +23,35 @@ public class BruteRasterImage implements Image{
         requiresNonZeroDimensions(colors);
         requiresRectangularMatrix(colors);
 
-        height = getRowCount(colors);
-        width = getColumnCount(colors);
+        height = getColumnCount(colors);
+        width = getRowCount(colors);
         createRepresantation();
         setPixelsColor(colors);
     }
 
     public void createRepresantation(){
-        pixels = new Color[height][width];
+        pixels = new Color[width][height];
     }
 
     public void setPixelColor(Color color, int x, int y){
-        pixels[y][x] = color;
+        pixels[x][y] = color;
     }
 
     @Override
     public Color getPixelColor(int x, int y){
-        return pixels[y][x];
+        return pixels[x][y];
     }
 
     private void setPixelsColor(Color[][] pixels){
         for (int row = 0; row < height; row ++)
             for(int column = 0; column < width; column ++)
-                setPixelColor(pixels[column][row],row, column);
+                setPixelColor(pixels[column][row],column,row);
     }
 
     private void setPixelsColor(Color color){
         for (int row = 0; row < height; row ++)
             for(int column = 0; column < width; column ++)
-                setPixelColor(color,row, column);
+                setPixelColor(color,column, row);
     }
 
     @Override
