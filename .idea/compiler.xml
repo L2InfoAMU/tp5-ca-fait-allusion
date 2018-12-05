@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tp5-ca-fait-allusion" />
+        <module name="Image" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="tp5-ca-fait-allusion" target="10" />
-    </bytecodeTargetLevel>
   </component>
 </project>
